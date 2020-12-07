@@ -58,7 +58,7 @@
                 
                 $.ajax(settings).done(function (response) {
                   if(response.success){
-                      alert(document.referrer)
+                      _.$router.push("home")
                   }
                   else{
                       
