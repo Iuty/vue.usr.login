@@ -1,4 +1,5 @@
 <template>
+    <div id="frame">
     <div id="back-ground">
     <div id="login-frame">
     <h3 id="login-title">用户登录</h3>
@@ -27,6 +28,7 @@
         </el-row>
     </div>
     <el-button id="lgoin-btn" type="primary" @click=login_>登录</el-button>
+    </div>
     </div>
     </div>
     
@@ -58,6 +60,7 @@
                 
                 $.ajax(settings).done(function (response) {
                   if(response.success){
+                      
                       _.$router.push("home")
                   }
                   else{
@@ -71,6 +74,9 @@
 </script>
 
 <style>
+    #frame{
+        height: 100%;
+    }
     #lgoin-btn{
         
         margin-top: 30px;
@@ -80,6 +86,7 @@
     }
     #back-ground{
         height: 100%;
+        padding:0px;
         background: #eee;
         background-image: url("../assets/background.jpg");
     }
