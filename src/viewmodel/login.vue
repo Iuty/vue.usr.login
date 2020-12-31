@@ -45,6 +45,19 @@
             }
         },
         methods:{
+            getSessionFromCookie:function(){
+              
+              var cookie = document.cookie.split(";")
+              
+              for(var ck in cookie){
+                  
+                  var kv = cookie[ck].split("=");
+                  if (kv[0]=="session"){
+                      return kv[1]
+                  }
+              }
+              return null;
+            },
             login_:function(){
                 var _ = this
                 var settings = {
@@ -61,6 +74,10 @@
                 $.ajax(settings).done(function (response) {
                   if(response.success){
                       
+                      let session = _.getSessionFromCookie();
+                      if(session != null){
+                          window.localStorage.session = session;
+                      }
                       _.$router.push("home")
                   }
                   else{

@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <vm_login></vm_login>
+    <router-view>
+        
+    </router-view> 
   </div>
 </template>
 
 <script>
-import vm_login from './viewmodel/login.vue'
 
 export default {
   name: 'app',
-  components: {
-    vm_login
+  mounted: function(){
+     
+     
   }
 }
 </script>
